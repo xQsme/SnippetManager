@@ -9,3 +9,5 @@ E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CoreCompile
 E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.exe
 E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.pdb
 E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.SnippetSelector.resources
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Add.resources
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Edit.resources
