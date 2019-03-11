@@ -14,12 +14,25 @@ namespace SnippetManager
             get;
         }
 
+        public Boolean startup {
+            get; set;
+        }
+
+        public char key
+        {
+            get; set;
+        }
+
         public DataManager()
         {
             snippets = new List<Snippet>();
+            startup = true;
+            key = 'X';
             //READ FILE
             //FOREACH ADD
-            //snippets.Add(new Snippet("table", "Table Snippet"));
+            snippets.Add(new Snippet("table", "Table Snippet"));
+            snippets.Add(new Snippet("shrug", "¯\\_{(}ツ{)}_/¯"));
+            snippets.Add(new Snippet("navbar", "Navbar Snippet"));
         }
 
         public void saveData()

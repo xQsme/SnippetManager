@@ -7,17 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace SnippetManager
 {
     public partial class Form1 : Form
     {
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+        const int MYACTION_HOTKEY_ID = 1;
         DataManager data;
         public Form1()
         {
             InitializeComponent();
             data = new DataManager();
             updateList();
+            RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)Keys.X);
         }
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -61,11 +68,49 @@ namespace SnippetManager
             listBox1.DataSource = data.snippets;
         }
 
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings(data.startup, data.key);
+            settings.ShowDialog();
+        }
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                notifyIcon1.Visible = true;
+                this.Hide();
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                notifyIcon1.Visible = false;
+            }
+        }
 
-        /*            SnippetSelector snippetSelector = new SnippetSelector();
-            snippetSelector.Show();
-            */
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = true;
+            this.Hide();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == MYACTION_HOTKEY_ID)
+            {
+                SnippetSelector snippetSelector = new SnippetSelector(data);
+                var result = snippetSelector.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    SendKeys.Send(snippetSelector.ReturnValue);
+                }
+            }
+            base.WndProc(ref m);
+        }
     }
 }

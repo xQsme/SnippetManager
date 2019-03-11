@@ -10,28 +10,29 @@ using System.Windows.Forms;
 
 namespace SnippetManager
 {
-    public partial class Edit : Form
+    public partial class Settings : Form
     {
-        private Snippet snippet;
-
-        public Edit(Snippet snippet)
+        public Settings(Boolean startup, char key)
         {
-            this.snippet = snippet;
             InitializeComponent();
-            textBox1.Text = snippet.keyword;
-            richTextBox1.Text = snippet.snippet;
+            checkStartup.Checked = startup;
+            textBox1.Text = key.ToString();
+            label1.Text = "Activation Key (CTRL + " + key + ")";
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            snippet.keyword = textBox1.Text;
-            snippet.snippet = richTextBox1.Text;
             Close();
         }
 
         private void buttonDismiss_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            label1.Text = "Activation Key (CTRL + " + textBox1.Text.ToUpper() + ")";
         }
     }
 }

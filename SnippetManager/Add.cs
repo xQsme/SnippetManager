@@ -33,13 +33,13 @@ namespace SnippetManager
             }
             else
             {
-                this.Close();
+                Close();
             }
         }
 
         private void buttonDismiss_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

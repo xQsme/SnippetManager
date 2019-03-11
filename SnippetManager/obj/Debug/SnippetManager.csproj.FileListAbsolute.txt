@@ -11,3 +11,17 @@ E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.pdb
 E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.SnippetSelector.resources
 E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Add.resources
 E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Edit.resources
+C:\Git\SnippetManager\SnippetManager\bin\Debug\SnippetManager.exe.config
+C:\Git\SnippetManager\SnippetManager\bin\Debug\SnippetManager.exe
+C:\Git\SnippetManager\SnippetManager\bin\Debug\SnippetManager.pdb
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csprojAssemblyReference.cache
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Edit.resources
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Add.resources
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Form1.resources
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Properties.Resources.resources
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Settings.resources
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.SnippetSelector.resources
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.GenerateResource.cache
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CoreCompileInputs.cache
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.exe
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.pdb
