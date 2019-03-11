@@ -104,6 +104,9 @@ namespace SnippetManager
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == MYACTION_HOTKEY_ID)
             {
                 SnippetSelector snippetSelector = new SnippetSelector(data);
+                snippetSelector.Shown += delegate (Object sender, EventArgs e) {
+                    ((Form)sender).WindowState = FormWindowState.Maximized;
+                };
                 var result = snippetSelector.ShowDialog();
                 if (result == DialogResult.OK)
                 {

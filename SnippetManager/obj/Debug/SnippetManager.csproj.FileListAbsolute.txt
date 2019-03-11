@@ -25,3 +25,4 @@ C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.GenerateRes
 C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CoreCompileInputs.cache
 C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.exe
 C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.pdb
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Settings.resources

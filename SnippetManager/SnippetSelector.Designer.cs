@@ -107,7 +107,7 @@
             this.Text = "SnippetSelector";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.SystemColors.ControlText;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Deactivate += new System.EventHandler(this.SnippetSelector_Deactivate);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
