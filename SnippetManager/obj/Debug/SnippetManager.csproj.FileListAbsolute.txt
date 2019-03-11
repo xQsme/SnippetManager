@@ -1,0 +1,11 @@
+E:\Git\SnippetManager\SnippetManager\bin\Debug\SnippetManager.exe.config
+E:\Git\SnippetManager\SnippetManager\bin\Debug\SnippetManager.exe
+E:\Git\SnippetManager\SnippetManager\bin\Debug\SnippetManager.pdb
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csprojAssemblyReference.cache
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Form1.resources
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Properties.Resources.resources
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.GenerateResource.cache
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CoreCompileInputs.cache
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.exe
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.pdb
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.SnippetSelector.resources
