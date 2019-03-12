@@ -39,6 +39,10 @@ namespace SnippetManager
             }
             updateList();
             RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)data.key);
+            ContextMenu menu = new ContextMenu();
+            menu.MenuItems.Add("Open", (s, e) => WindowState = FormWindowState.Normal);
+            menu.MenuItems.Add("Exit", (s, e) => Application.Exit());
+            notifyIcon1.ContextMenu = menu;
         }
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -168,11 +172,35 @@ namespace SnippetManager
                 var result = snippetSelector.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    SendKeys.Send(snippetSelector.ReturnValue);
+                    SendKeys.Send(escapeString(snippetSelector.ReturnValue));
                     data.saveData();
                 }
             }
             base.WndProc(ref m);
+        }
+
+        private String escapeString(String s)
+        {
+            String toReturn = "";
+            String stuff = "(){}+^%~[]";
+            foreach (char c in s)
+            {
+                if(stuff.Contains(c))
+                {
+                    toReturn += "{" + c + "}";
+                }
+                else
+                {
+                    toReturn += c;
+                }
+            }
+                return toReturn;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
