@@ -1,10 +1,10 @@
 # SnippetManager
 
-Cross IDE (System Wide) Snippet Manager
+Cross IDE (System Wide) Snippet Manager.
 
 Inspired by rofi.
 
-Currently Windows exclusive (C#), might try to make cross platform soon.
+Currently Windows exclusive (C#), might try to make it cross platform soon.
 
 Demo:
 <p align="center">
