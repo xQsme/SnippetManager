@@ -46,8 +46,6 @@
             this.textBox1.Size = new System.Drawing.Size(300, 33);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
@@ -102,13 +100,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "SnippetSelector";
             this.ShowInTaskbar = false;
             this.Text = "SnippetSelector";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.SystemColors.GradientActiveCaption;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-            this.Deactivate += new System.EventHandler(this.SnippetSelector_Deactivate);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SnippetSelector_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

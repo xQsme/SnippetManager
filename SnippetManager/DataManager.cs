@@ -55,7 +55,7 @@ namespace SnippetManager
                     snippets = new List<Snippet>();
                     startup = false;
                     theme = true;
-                    key = 'X';
+                    key = ' ';
                     saveData();
                 }
                 else

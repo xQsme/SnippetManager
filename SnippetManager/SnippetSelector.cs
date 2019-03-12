@@ -54,15 +54,16 @@ namespace SnippetManager
             listBox1.DataSource = currentData;
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void SnippetSelector_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Escape)
+            textBox1.Focus();
+            if (e.KeyCode == Keys.Escape)
             {
                 Close();
             }
-            if(e.KeyChar == (char)Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
-                if(listBox1.SelectedIndex >= 0 && currentData.Count > 0)
+                if (listBox1.SelectedIndex >= 0 && currentData.Count > 0)
                 {
                     ReturnValue = currentData[listBox1.SelectedIndex].snippet;
                     currentData[listBox1.SelectedIndex].count++;
@@ -70,30 +71,20 @@ namespace SnippetManager
                 }
                 Close();
             }
-        }
-
-        private void SnippetSelector_Deactivate(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
-                if(listBox1.SelectedIndex > 0)
+                if (listBox1.SelectedIndex > 0)
                 {
                     listBox1.SelectedIndex--;
                 }
             }
             else if (e.KeyCode == Keys.Down)
             {
-                if (listBox1.SelectedIndex < currentData.Count-1)
+                if (listBox1.SelectedIndex < currentData.Count - 1)
                 {
                     listBox1.SelectedIndex++;
                 }
             }
-
         }
     }
 }
