@@ -1,6 +1,8 @@
 # SnippetManager
 
-Cross IDE Snippet Manager
+Cross IDE (System Wide) Snippet Manager
+
+Currently Windows exclusive (C#), might try to make cross platform soon.
 
 Demo:
 <p align="center">
