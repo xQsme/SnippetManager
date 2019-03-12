@@ -15,6 +15,8 @@ Currently Windows exclusive (C#), might try to make it cross platform soon.
 ## Features:
 Configurable shortcut key (Default CTRL+X)
 
+List Sorted by usage and filtered by input
+
 Manage your snippets/macros
 
 Light and Dark Theme support
