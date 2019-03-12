@@ -23,6 +23,20 @@ namespace SnippetManager
         {
             InitializeComponent();
             data = new DataManager();
+            if(!data.theme)
+            {
+                buttonAdd.BackColor = default(Color);
+                buttonAdd.ForeColor = default(Color);
+                buttonEdit.BackColor = default(Color);
+                buttonEdit.ForeColor = default(Color);
+                buttonDelete.BackColor = default(Color);
+                buttonDelete.ForeColor = default(Color);
+                buttonSettings.BackColor = default(Color);
+                buttonSettings.ForeColor = default(Color);
+                listBox1.BackColor = default(Color);
+                listBox1.ForeColor = default(Color);
+                BackColor = default(Color);
+            }
             updateList();
             RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)data.key);
         }
@@ -32,7 +46,8 @@ namespace SnippetManager
             int index = listBox1.IndexFromPoint(e.Location);
             if (index != ListBox.NoMatches)
             {
-                MessageBox.Show(data.snippets[index].snippet + "\nUsed " + data.snippets[index].count + " times.", data.snippets[index].keyword);
+                Info info = new Info(data.snippets[index], data.theme);
+                info.Show();
             }
         }
 
@@ -51,7 +66,7 @@ namespace SnippetManager
         {
             if (listBox1.SelectedIndex >= 0 && data.snippets.Count > 0)
             {
-                Edit edit = new Edit(data.snippets[listBox1.SelectedIndex]);
+                Edit edit = new Edit(data.snippets[listBox1.SelectedIndex], data.theme);
                 var result = edit.ShowDialog();
                 if (result == DialogResult.OK)
                 {
@@ -85,6 +100,34 @@ namespace SnippetManager
             {
                 UnregisterHotKey(this.Handle, MYACTION_HOTKEY_ID);
                 RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)data.key);
+                if (data.theme)
+                {
+                    buttonAdd.BackColor = Color.FromArgb(64, 64, 64);
+                    buttonAdd.ForeColor = Color.White;
+                    buttonEdit.BackColor = Color.FromArgb(64, 64, 64);
+                    buttonEdit.ForeColor = Color.White;
+                    buttonDelete.BackColor = Color.FromArgb(64, 64, 64);
+                    buttonDelete.ForeColor = Color.White;
+                    buttonSettings.BackColor = Color.FromArgb(64, 64, 64);
+                    buttonSettings.ForeColor = Color.White;
+                    listBox1.BackColor = Color.FromArgb(64, 64, 64);
+                    listBox1.ForeColor = Color.White;
+                    BackColor = SystemColors.WindowFrame;
+                }
+                else
+                {
+                    buttonAdd.BackColor = default(Color);
+                    buttonAdd.ForeColor = default(Color);
+                    buttonEdit.BackColor = default(Color);
+                    buttonEdit.ForeColor = default(Color);
+                    buttonDelete.BackColor = default(Color);
+                    buttonDelete.ForeColor = default(Color);
+                    buttonSettings.BackColor = default(Color);
+                    buttonSettings.ForeColor = default(Color);
+                    listBox1.BackColor = default(Color);
+                    listBox1.ForeColor = default(Color);
+                    BackColor = default(Color);
+                }
                 data.saveData();
             }
         }

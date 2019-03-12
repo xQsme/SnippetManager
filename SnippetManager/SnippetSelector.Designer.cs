@@ -37,7 +37,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlText;
+            this.textBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
@@ -81,7 +81,7 @@
             // 
             // listBox1
             // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.ControlText;
+            this.listBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -96,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlText;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1200, 800);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
@@ -106,7 +106,7 @@
             this.ShowInTaskbar = false;
             this.Text = "SnippetSelector";
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.SystemColors.ControlText;
+            this.TransparencyKey = System.Drawing.SystemColors.GradientActiveCaption;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Deactivate += new System.EventHandler(this.SnippetSelector_Deactivate);
             this.tableLayoutPanel1.ResumeLayout(false);

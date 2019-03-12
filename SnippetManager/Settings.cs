@@ -18,6 +18,22 @@ namespace SnippetManager
         {
             InitializeComponent();
             this.data = data;
+            if(!data.theme)
+            {
+                checkStartup.BackColor = default(Color);
+                checkStartup.ForeColor = default(Color);
+                checkTheme.BackColor = default(Color);
+                checkTheme.ForeColor = default(Color);
+                textBox1.BackColor = default(Color);
+                textBox1.ForeColor = default(Color);
+                buttonSave.BackColor = default(Color);
+                buttonSave.ForeColor = default(Color);
+                buttonDismiss.BackColor = default(Color);
+                buttonDismiss.ForeColor = default(Color);
+                label1.BackColor = default(Color);
+                label1.ForeColor = default(Color);
+                BackColor = default(Color);
+            }
             checkStartup.Checked = data.startup;
             checkTheme.Checked = data.theme;
             textBox1.Text = data.key.ToString();
@@ -80,6 +96,38 @@ namespace SnippetManager
         private void checkTheme_CheckedChanged(object sender, EventArgs e)
         {
             data.theme = checkTheme.Checked;
+            if(data.theme)
+            {
+                checkStartup.BackColor = Color.FromArgb(64, 64, 64);
+                checkStartup.ForeColor = Color.White;
+                checkTheme.BackColor = Color.FromArgb(64, 64, 64);
+                checkTheme.ForeColor = Color.White;
+                textBox1.BackColor = Color.FromArgb(64, 64, 64);
+                textBox1.ForeColor = Color.White;
+                buttonSave.BackColor = Color.FromArgb(64, 64, 64);
+                buttonSave.ForeColor = Color.White;
+                buttonDismiss.BackColor = Color.FromArgb(64, 64, 64);
+                buttonDismiss.ForeColor = Color.White;
+                label1.BackColor = SystemColors.WindowFrame;
+                label1.ForeColor = Color.White;
+                BackColor = SystemColors.WindowFrame;
+            }
+            else
+            {
+                checkStartup.BackColor = default(Color);
+                checkStartup.ForeColor = default(Color);
+                checkTheme.BackColor = default(Color);
+                checkTheme.ForeColor = default(Color);
+                textBox1.BackColor = default(Color);
+                textBox1.ForeColor = default(Color);
+                buttonSave.BackColor = default(Color);
+                buttonSave.ForeColor = default(Color);
+                buttonDismiss.BackColor = default(Color);
+                buttonDismiss.ForeColor = default(Color);
+                label1.BackColor = default(Color);
+                label1.ForeColor = default(Color);
+                BackColor = default(Color);
+            }
         }
 
         private void textBox1_Enter(object sender, EventArgs e)

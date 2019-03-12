@@ -18,6 +18,22 @@ namespace SnippetManager
         {
             InitializeComponent();
             this.data = data;
+            if (!data.theme)
+            {
+                buttonSave.BackColor = default(Color);
+                buttonSave.ForeColor = default(Color);
+                buttonDismiss.BackColor = default(Color);
+                buttonDismiss.ForeColor = default(Color);
+                textBox1.BackColor = default(Color);
+                textBox1.ForeColor = default(Color);
+                richTextBox1.BackColor = default(Color);
+                richTextBox1.ForeColor = default(Color);
+                label1.BackColor = default(Color);
+                label1.ForeColor = default(Color);
+                label2.BackColor = default(Color);
+                label2.ForeColor = default(Color);
+                BackColor = default(Color);
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

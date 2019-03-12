@@ -21,10 +21,16 @@ namespace SnippetManager
             tableLayoutPanel1.Controls.Add(label1, 1, 1);
             tableLayoutPanel1.Controls.Add(textBox1, 2, 1);
             tableLayoutPanel1.Controls.Add(listBox1, 2, 2);
+            if(!data.theme)
+            {
+                label1.ForeColor = Color.Black;
+                listBox1.ForeColor = Color.Black;
+                textBox1.ForeColor = Color.Black;
+            }
             this.data = data;
             this.data.snippets.Sort((x, y) => y.count - x.count);
-            currentData = new List<Snippet>(this.data.snippets);
-            listBox1.DataSource = currentData.Take(6).ToList();
+            currentData = new List<Snippet>(this.data.snippets).Take(6).ToList();
+            listBox1.DataSource = currentData;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -42,8 +48,9 @@ namespace SnippetManager
             {
                 currentData.Remove(s);
             }
+            currentData = currentData.Take(6).ToList();
             listBox1.DataSource = null;
-            listBox1.DataSource = currentData.Take(6).ToList();
+            listBox1.DataSource = currentData;
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -80,7 +87,7 @@ namespace SnippetManager
             }
             else if (e.KeyCode == Keys.Down)
             {
-                if (listBox1.SelectedIndex < data.snippets.Count-1)
+                if (listBox1.SelectedIndex < currentData.Count-1)
                 {
                     listBox1.SelectedIndex++;
                 }

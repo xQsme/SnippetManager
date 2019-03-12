@@ -30,3 +30,4 @@ C:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.dll
 C:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.pdb
 C:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.xml
 C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CopyComplete
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Info.resources

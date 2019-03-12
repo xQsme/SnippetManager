@@ -14,12 +14,28 @@ namespace SnippetManager
     {
         private Snippet snippet;
 
-        public Edit(Snippet snippet)
+        public Edit(Snippet snippet, Boolean theme)
         {
             this.snippet = snippet;
             InitializeComponent();
             textBox1.Text = snippet.keyword;
             richTextBox1.Text = snippet.snippet;
+            if (!theme)
+            {
+                buttonSave.BackColor = default(Color);
+                buttonSave.ForeColor = default(Color);
+                buttonDismiss.BackColor = default(Color);
+                buttonDismiss.ForeColor = default(Color);
+                textBox1.BackColor = default(Color);
+                textBox1.ForeColor = default(Color);
+                richTextBox1.BackColor = default(Color);
+                richTextBox1.ForeColor = default(Color);
+                label1.BackColor = default(Color);
+                label1.ForeColor = default(Color);
+                label2.BackColor = default(Color);
+                label2.ForeColor = default(Color);
+                BackColor = default(Color);
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
