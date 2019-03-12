@@ -2,6 +2,8 @@
 
 Cross IDE (System Wide) Snippet Manager
 
+Inspired by rofi.
+
 Currently Windows exclusive (C#), might try to make cross platform soon.
 
 Demo:
