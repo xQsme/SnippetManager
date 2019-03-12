@@ -24,7 +24,7 @@ namespace SnippetManager
             InitializeComponent();
             data = new DataManager();
             updateList();
-            RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)Keys.X);
+            RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)data.key);
         }
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -39,7 +39,11 @@ namespace SnippetManager
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             Add add = new Add(data);
-            add.ShowDialog();
+            var result = add.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                data.saveData();
+            }
             updateList();
         }
 
@@ -48,7 +52,11 @@ namespace SnippetManager
             if (listBox1.SelectedIndex >= 0 && data.snippets.Count > 0)
             {
                 Edit edit = new Edit(data.snippets[listBox1.SelectedIndex]);
-                edit.ShowDialog();
+                var result = edit.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    data.saveData();
+                }
                 updateList();
             }
         }
@@ -58,6 +66,7 @@ namespace SnippetManager
             if(listBox1.SelectedIndex >= 0 && data.snippets.Count > 0)
             {
                 data.snippets.Remove(data.snippets[listBox1.SelectedIndex]);
+                data.saveData();
                 updateList();
             }
         }
@@ -70,8 +79,14 @@ namespace SnippetManager
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings(data.startup, data.key);
-            settings.ShowDialog();
+            Settings settings = new Settings(data);
+            var result = settings.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                UnregisterHotKey(this.Handle, MYACTION_HOTKEY_ID);
+                RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)data.key);
+                data.saveData();
+            }
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -111,6 +126,7 @@ namespace SnippetManager
                 if (result == DialogResult.OK)
                 {
                     SendKeys.Send(snippetSelector.ReturnValue);
+                    data.saveData();
                 }
             }
             base.WndProc(ref m);

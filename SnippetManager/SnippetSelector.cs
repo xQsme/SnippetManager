@@ -14,6 +14,7 @@ namespace SnippetManager
     {
         DataManager data;
         public string ReturnValue { get; set; }
+        List<Snippet> currentData;
         public SnippetSelector(DataManager data)
         {
             InitializeComponent();
@@ -21,12 +22,28 @@ namespace SnippetManager
             tableLayoutPanel1.Controls.Add(textBox1, 2, 1);
             tableLayoutPanel1.Controls.Add(listBox1, 2, 2);
             this.data = data;
-            listBox1.DataSource = data.snippets;
+            this.data.snippets.Sort((x, y) => y.count - x.count);
+            currentData = new List<Snippet>(this.data.snippets);
+            listBox1.DataSource = currentData.Take(6).ToList();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            List<Snippet> toRemove = new List<Snippet>();
+            foreach(Snippet s in data.snippets)
+            {
+                if(!s.keyword.StartsWith(textBox1.Text))
+                {
+                    toRemove.Add(s);
+                }
+            }
+            currentData = new List<Snippet>(this.data.snippets);
+            foreach (Snippet s in toRemove)
+            {
+                currentData.Remove(s);
+            }
+            listBox1.DataSource = null;
+            listBox1.DataSource = currentData.Take(6).ToList();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -37,8 +54,12 @@ namespace SnippetManager
             }
             if(e.KeyChar == (char)Keys.Enter)
             {
-                ReturnValue = data.snippets[listBox1.SelectedIndex].snippet;
-                DialogResult = DialogResult.OK;
+                if(listBox1.SelectedIndex >= 0 && currentData.Count > 0)
+                {
+                    ReturnValue = currentData[listBox1.SelectedIndex].snippet;
+                    currentData[listBox1.SelectedIndex].count++;
+                    DialogResult = DialogResult.OK;
+                }
                 Close();
             }
         }

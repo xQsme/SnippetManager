@@ -33,6 +33,7 @@ namespace SnippetManager
             }
             else
             {
+                DialogResult = DialogResult.OK;
                 Close();
             }
         }

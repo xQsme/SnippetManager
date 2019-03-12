@@ -43,7 +43,7 @@
             this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(167, 122);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(600, 33);
+            this.textBox1.Size = new System.Drawing.Size(300, 33);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
@@ -89,7 +89,7 @@
             this.listBox1.ItemHeight = 33;
             this.listBox1.Location = new System.Drawing.Point(3, 3);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(594, 363);
+            this.listBox1.Size = new System.Drawing.Size(300, 297);
             this.listBox1.TabIndex = 0;
             // 
             // SnippetSelector

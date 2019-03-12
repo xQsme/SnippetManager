@@ -1,0 +1,17 @@
+C:\Git\SnippetManager\SnippetManager\bin\Release\SnippetManager.exe.config
+C:\Git\SnippetManager\SnippetManager\bin\Release\SnippetManager.exe
+C:\Git\SnippetManager\SnippetManager\bin\Release\SnippetManager.pdb
+C:\Git\SnippetManager\SnippetManager\bin\Release\Newtonsoft.Json.dll
+C:\Git\SnippetManager\SnippetManager\bin\Release\Newtonsoft.Json.pdb
+C:\Git\SnippetManager\SnippetManager\bin\Release\Newtonsoft.Json.xml
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.Edit.resources
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.Add.resources
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.Form1.resources
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.Properties.Resources.resources
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.Settings.resources
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.SnippetSelector.resources
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.csproj.GenerateResource.cache
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.csproj.CoreCompileInputs.cache
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.csproj.CopyComplete
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.exe
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.pdb

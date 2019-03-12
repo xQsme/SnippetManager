@@ -26,6 +26,7 @@ namespace SnippetManager
         {
             snippet.keyword = textBox1.Text;
             snippet.snippet = richTextBox1.Text;
+            DialogResult = DialogResult.OK;
             Close();
         }
 

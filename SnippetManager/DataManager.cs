@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +13,15 @@ namespace SnippetManager
 
         public List<Snippet> snippets
         {
-            get;
+            get; set;
         }
 
         public Boolean startup {
+            get; set;
+        }
+
+        public Boolean theme
+        {
             get; set;
         }
 
@@ -25,19 +32,63 @@ namespace SnippetManager
 
         public DataManager()
         {
-            snippets = new List<Snippet>();
-            startup = true;
-            key = 'X';
-            //READ FILE
-            //FOREACH ADD
-            snippets.Add(new Snippet("table", "Table Snippet"));
-            snippets.Add(new Snippet("shrug", "¯\\_{(}ツ{)}_/¯"));
-            snippets.Add(new Snippet("navbar", "Navbar Snippet"));
+            loadData();
+        }
+
+        public void loadData()
+        {
+            string homePath = (Environment.OSVersion.Platform == PlatformID.Unix ||
+                Environment.OSVersion.Platform == PlatformID.MacOSX)
+                ? Environment.GetEnvironmentVariable("HOME")
+                : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
+            if (!File.Exists(homePath + "/.snippets"))
+            {
+                File.WriteAllText(homePath + "/.snippets", "{}");
+            }
+            using (StreamReader r = new StreamReader(homePath + "/.snippets"))
+            {
+                string json = r.ReadToEnd();
+                r.Close();
+                Item item = JsonConvert.DeserializeObject<Item>(json);
+                if(item.snippets == null)
+                {
+                    snippets = new List<Snippet>();
+                    startup = false;
+                    theme = true;
+                    key = 'X';
+                    saveData();
+                }
+                else
+                {
+                    snippets = item.snippets;
+                    startup = item.startup;
+                    theme = item.theme;
+                    key = item.key;
+                }
+            }
+        }
+
+        public class Item
+        {
+            public List<Snippet> snippets;
+            public Boolean startup;
+            public char key;
+            public Boolean theme;
         }
 
         public void saveData()
         {
-
+            string homePath = (Environment.OSVersion.Platform == PlatformID.Unix ||
+                Environment.OSVersion.Platform == PlatformID.MacOSX)
+                ? Environment.GetEnvironmentVariable("HOME")
+                : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
+            Item item = new Item();
+            item.snippets = snippets;
+            item.startup = startup;
+            item.key = key;
+            item.theme = theme;
+            String json = JsonConvert.SerializeObject(item);
+            File.WriteAllText(homePath + "/.snippets", json);
         }
 
         public Boolean add(Snippet snippet)

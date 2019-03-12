@@ -26,3 +26,7 @@ C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CoreCompile
 C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.exe
 C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.pdb
 E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Settings.resources
+C:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.dll
+C:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.pdb
+C:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.xml
+C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CopyComplete
