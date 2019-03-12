@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 namespace SnippetManager
 {
@@ -132,6 +133,15 @@ namespace SnippetManager
                     listBox1.ForeColor = default(Color);
                     BackColor = default(Color);
                 }
+                RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                if (data.startup)
+                {
+                    rk.SetValue("SnippetManager", Application.ExecutablePath);
+                }
+                else
+                {
+                    rk.DeleteValue("SnippetManager", false);
+                }
                 data.saveData();
             }
         }
@@ -169,38 +179,28 @@ namespace SnippetManager
                 snippetSelector.Shown += delegate (Object sender, EventArgs e) {
                     ((Form)sender).WindowState = FormWindowState.Maximized;
                 };
+                var screen = Screen.FromPoint(Cursor.Position);
+                snippetSelector.StartPosition = FormStartPosition.Manual;
+                snippetSelector.Left = screen.Bounds.Left + screen.Bounds.Width / 2 - snippetSelector.Width / 2;
+                snippetSelector.Top = screen.Bounds.Top + screen.Bounds.Height / 2 - snippetSelector.Height / 2;
                 var result = snippetSelector.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    SendKeys.Send(escapeString(snippetSelector.ReturnValue));
+                    Clipboard.SetText(snippetSelector.ReturnValue);
+                    SendKeys.Send("^{v}");
                     data.saveData();
                 }
             }
             base.WndProc(ref m);
         }
 
-        private String escapeString(String s)
-        {
-            String toReturn = "";
-            String stuff = "(){}+^%~[]";
-            foreach (char c in s)
-            {
-                if(stuff.Contains(c))
-                {
-                    toReturn += "{" + c + "}";
-                }
-                else
-                {
-                    toReturn += c;
-                }
-            }
-                return toReturn;
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            WindowState = FormWindowState.Minimized;
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                WindowState = FormWindowState.Minimized;
+            }
         }
     }
 }

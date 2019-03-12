@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Win32;
 
 namespace SnippetManager
 {
@@ -84,13 +83,6 @@ namespace SnippetManager
         private void checkStartup_CheckedChanged(object sender, EventArgs e)
         {
             data.startup = checkStartup.Checked;
-            /*RegistryKey rk = Registry.CurrentUser.OpenSubKey
-                ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-
-            if (checkStartup.Checked)
-                rk.SetValue("SnippetManager", Application.ExecutablePath);
-            else
-                rk.DeleteValue("SnippetManager", false);*/
         }
 
         private void checkTheme_CheckedChanged(object sender, EventArgs e)

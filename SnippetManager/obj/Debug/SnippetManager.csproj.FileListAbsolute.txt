@@ -31,3 +31,8 @@ C:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.pdb
 C:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.xml
 C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CopyComplete
 C:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Info.resources
+E:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.dll
+E:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.pdb
+E:\Git\SnippetManager\SnippetManager\bin\Debug\Newtonsoft.Json.xml
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.Info.resources
+E:\Git\SnippetManager\SnippetManager\obj\Debug\SnippetManager.csproj.CopyComplete

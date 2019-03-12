@@ -31,6 +31,7 @@ namespace SnippetManager
             this.data.snippets.Sort((x, y) => y.count - x.count);
             currentData = new List<Snippet>(this.data.snippets).Take(6).ToList();
             listBox1.DataSource = currentData;
+            textBox1.Focus();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
