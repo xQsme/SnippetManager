@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkTheme = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // checkStartup
@@ -78,23 +80,22 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(38, 62);
+            this.label1.Location = new System.Drawing.Point(13, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 13);
+            this.label1.Size = new System.Drawing.Size(164, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Activation Key (CTRL + SPACE)";
+            this.label1.Text = "Activation Keys (CTRL + SPACE)";
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.Location = new System.Drawing.Point(12, 59);
-            this.textBox1.MaxLength = 1;
+            this.textBox1.Location = new System.Drawing.Point(95, 78);
+            this.textBox1.MaxLength = 10;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(20, 20);
+            this.textBox1.Size = new System.Drawing.Size(82, 20);
             this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // checkTheme
             // 
@@ -109,20 +110,49 @@
             this.checkTheme.UseVisualStyleBackColor = false;
             this.checkTheme.CheckedChanged += new System.EventHandler(this.checkTheme_CheckedChanged);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "ALT",
+            "CTRL",
+            "SHIFT"});
+            this.comboBox1.Location = new System.Drawing.Point(16, 78);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(58, 21);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(80, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "+";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(384, 361);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.checkTheme);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDismiss);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.checkStartup);
+            this.KeyPreview = true;
             this.Name = "Settings";
             this.Text = "Settings";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Settings_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +166,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox checkTheme;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

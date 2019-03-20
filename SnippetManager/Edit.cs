@@ -50,5 +50,13 @@ namespace SnippetManager
         {
             Close();
         }
+
+        private void Edit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
     }
 }

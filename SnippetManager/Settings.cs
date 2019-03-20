@@ -35,22 +35,31 @@ namespace SnippetManager
             }
             checkStartup.Checked = data.startup;
             checkTheme.Checked = data.theme;
-            textBox1.Text = data.key.ToString();
-            if(data.key == ' ')
+            textBox1.Text = data.keyWord;
+            int index = 0;
+            if (data.modifier == 1)
             {
-                label1.Text = "Activation Key (CTRL + SPACE)";
+                label1.Text = "Activation Keys (ALT + " + data.keyWord + ")";
+                index = 0;
             }
-            else
+            else if (data.modifier == 2)
             {
-                label1.Text = "Activation Key (CTRL + " + data.key + ")";
+                label1.Text = "Activation Keys (CTRL + " + data.keyWord + ")";
+                index = 1;
             }
+            else if (data.modifier == 4)
+            {
+                label1.Text = "Activation Keys (SHIFT + " + data.keyWord + ")";
+                index = 2;
+            }
+            comboBox1.SelectedIndex = index;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if(textBox1.Text == "")
             {
-                MessageBox.Show("Must have an activation key!", "Error");
+                MessageBox.Show("Must have activation keys!", "Error");
             }
             else
             {
@@ -64,22 +73,6 @@ namespace SnippetManager
             Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if(textBox1.Text != "")
-            {
-                if (textBox1.Text == " ")
-                {
-                    label1.Text = "Activation Key (CTRL + SPACE)";
-                }
-                else
-                {
-                    label1.Text = "Activation Key (CTRL + " + textBox1.Text.ToUpper() + ")";
-                }
-                data.key = textBox1.Text[0];
-            }
-        }
-
         private void checkStartup_CheckedChanged(object sender, EventArgs e)
         {
             data.startup = checkStartup.Checked;
@@ -90,9 +83,9 @@ namespace SnippetManager
             data.theme = checkTheme.Checked;
             if(data.theme)
             {
-                checkStartup.BackColor = Color.FromArgb(64, 64, 64);
+                checkStartup.BackColor = SystemColors.WindowFrame;
                 checkStartup.ForeColor = Color.White;
-                checkTheme.BackColor = Color.FromArgb(64, 64, 64);
+                checkTheme.BackColor = SystemColors.WindowFrame;
                 checkTheme.ForeColor = Color.White;
                 textBox1.BackColor = Color.FromArgb(64, 64, 64);
                 textBox1.ForeColor = Color.White;
@@ -122,9 +115,70 @@ namespace SnippetManager
             }
         }
 
-        private void textBox1_Enter(object sender, EventArgs e)
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            if (comboBox1.Items[comboBox1.SelectedIndex].ToString() == "ALT")
+            {
+                data.modifier = 1;
+                label1.Text = "Activation Keys (ALT + ";
+            }
+            else if (comboBox1.Items[comboBox1.SelectedIndex].ToString() == "CTRL")
+            {
+                data.modifier = 2;
+                label1.Text = "Activation Keys (CTRL + ";
+            } 
+            else if(comboBox1.Items[comboBox1.SelectedIndex].ToString() == "SHIFT")
+            {
+                data.modifier = 4;
+                label1.Text = "Activation Keys (SHIFT + ";
+            }
+            if (textBox1.Text != "")
+            {
+                if (textBox1.Text == " ")
+                {
+                    label1.Text += "SPACE)";
+                }
+                else
+                {
+                    label1.Text += textBox1.Text.ToUpper() + ")";
+                }
+            }
+        }
+
+        private void Settings_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+
+            data.key = e.KeyValue;
+            textBox1.Text = e.KeyData.ToString();
+            if(textBox1.Text.Contains("D") && textBox1.Text.Length>1)
+            {
+                textBox1.Text = textBox1.Text[1].ToString();
+            }
+            if (comboBox1.Items[comboBox1.SelectedIndex].ToString() == "ALT")
+            {
+                data.modifier = 1;
+                label1.Text = "Activation Keys (ALT + " + textBox1.Text + ")";
+            }
+            else if (comboBox1.Items[comboBox1.SelectedIndex].ToString() == "CTRL")
+            {
+                data.modifier = 2;
+                label1.Text = "Activation Keys (CTRL + " + textBox1.Text + ")";
+            }
+            else if (comboBox1.Items[comboBox1.SelectedIndex].ToString() == "SHIFT")
+            {
+                data.modifier = 4;
+                label1.Text = "Activation Keys (SHIFT + " + textBox1.Text + ")";
+            }
+            data.keyWord = textBox1.Text;
         }
     }
 }

@@ -29,5 +29,13 @@ namespace SnippetManager
                 BackColor = default(Color);
             }
         }
+
+        private void Info_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+        }
     }
 }

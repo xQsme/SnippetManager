@@ -25,7 +25,17 @@ namespace SnippetManager
             get; set;
         }
 
-        public char key
+        public String keyWord
+        {
+            get; set;
+        }
+
+        public int key
+        {
+            get; set;
+        }
+
+        public int modifier
         {
             get; set;
         }
@@ -56,6 +66,14 @@ namespace SnippetManager
                     startup = false;
                     theme = true;
                     key = ' ';
+                    keyWord = "Space";
+                    /*
+                     Alt = 1,
+                     Control = 2,
+                     Shift = 4,
+                     Windows = 8
+                     */
+                    modifier = 2;
                     saveData();
                 }
                 else
@@ -64,6 +82,8 @@ namespace SnippetManager
                     startup = item.startup;
                     theme = item.theme;
                     key = item.key;
+                    modifier = item.modifier;
+                    keyWord = item.keyWord;
                 }
             }
         }
@@ -72,8 +92,10 @@ namespace SnippetManager
         {
             public List<Snippet> snippets;
             public Boolean startup;
-            public char key;
+            public int key;
+            public int modifier;
             public Boolean theme;
+            public String keyWord;
         }
 
         public void saveData()
@@ -86,6 +108,8 @@ namespace SnippetManager
             item.snippets = snippets;
             item.startup = startup;
             item.key = key;
+            item.keyWord = keyWord;
+            item.modifier = modifier;
             item.theme = theme;
             String json = JsonConvert.SerializeObject(item);
             File.WriteAllText(homePath + "/.snippets", json);

@@ -73,8 +73,10 @@
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.labelKey);
+            this.KeyPreview = true;
             this.Name = "Info";
             this.Text = "Info";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Info_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

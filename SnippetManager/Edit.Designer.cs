@@ -111,8 +111,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "Edit";
             this.Text = "Edit";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Edit_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -39,7 +39,7 @@ namespace SnippetManager
                 BackColor = default(Color);
             }
             updateList();
-            RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)data.key);
+            RegisterHotKey(Handle, MYACTION_HOTKEY_ID, data.modifier, data.key);
             ContextMenu menu = new ContextMenu();
             menu.MenuItems.Add("Open", (s, e) => WindowState = FormWindowState.Normal);
             menu.MenuItems.Add("Exit", (s, e) => Application.Exit());
@@ -103,8 +103,8 @@ namespace SnippetManager
             var result = settings.ShowDialog();
             if (result == DialogResult.OK)
             {
-                UnregisterHotKey(this.Handle, MYACTION_HOTKEY_ID);
-                RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)data.key);
+                UnregisterHotKey(Handle, MYACTION_HOTKEY_ID);
+                RegisterHotKey(Handle, MYACTION_HOTKEY_ID, data.modifier, data.key);
                 if (data.theme)
                 {
                     buttonAdd.BackColor = Color.FromArgb(64, 64, 64);
@@ -199,6 +199,14 @@ namespace SnippetManager
             if(e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
+                WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
                 WindowState = FormWindowState.Minimized;
             }
         }
