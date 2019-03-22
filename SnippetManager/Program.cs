@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,9 +15,16 @@ namespace SnippetManager
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            bool createdNew = true;
+            using (Mutex mutex = new Mutex(true, "SnippetManager", out createdNew))
+            {
+                if (createdNew)
+                {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new Form1());
+                }
+            }
         }
     }
 }
