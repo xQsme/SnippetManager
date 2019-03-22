@@ -30,6 +30,26 @@ namespace SnippetManager
             get; set;
         }
 
+        public System.Drawing.Color color
+        {
+            get; set;
+        }
+
+        public int R
+        {
+            get; set;
+        }
+
+        public int G
+        {
+            get; set;
+        }
+
+        public int B
+        {
+            get; set;
+        }
+
         public int key
         {
             get; set;
@@ -67,14 +87,9 @@ namespace SnippetManager
                     theme = true;
                     key = ' ';
                     keyWord = "Space";
-                    /*
-                     Alt = 1,
-                     Control = 2,
-                     Shift = 4,
-                     Windows = 8
-                     */
                     modifier = 2;
                     saveData();
+                    color = System.Drawing.Color.FromArgb(255, 255, 128, 0);
                 }
                 else
                 {
@@ -84,6 +99,7 @@ namespace SnippetManager
                     key = item.key;
                     modifier = item.modifier;
                     keyWord = item.keyWord;
+                    color = item.color;
                 }
             }
         }
@@ -92,6 +108,7 @@ namespace SnippetManager
         {
             public List<Snippet> snippets;
             public Boolean startup;
+            public System.Drawing.Color color;
             public int key;
             public int modifier;
             public Boolean theme;
@@ -111,6 +128,7 @@ namespace SnippetManager
             item.keyWord = keyWord;
             item.modifier = modifier;
             item.theme = theme;
+            item.color = color;
             String json = JsonConvert.SerializeObject(item);
             File.WriteAllText(homePath + "/.snippets", json);
         }

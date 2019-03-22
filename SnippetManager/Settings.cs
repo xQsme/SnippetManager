@@ -33,6 +33,7 @@ namespace SnippetManager
                 label1.ForeColor = default(Color);
                 BackColor = default(Color);
             }
+            textBox2.BackColor = data.color;
             checkStartup.Checked = data.startup;
             checkTheme.Checked = data.theme;
             textBox1.Text = data.keyWord;
@@ -179,6 +180,15 @@ namespace SnippetManager
                 label1.Text = "Activation Keys (SHIFT + " + textBox1.Text + ")";
             }
             data.keyWord = textBox1.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(colorDialog1.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+            {
+                textBox2.BackColor = colorDialog1.Color;
+                data.color = colorDialog1.Color;
+            }
         }
     }
 }
