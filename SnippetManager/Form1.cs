@@ -200,7 +200,8 @@ namespace SnippetManager
             if(e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
-                WindowState = FormWindowState.Minimized;
+                Hide();
+                notifyIcon1.Visible = true;
             }
         }
 
@@ -208,7 +209,9 @@ namespace SnippetManager
         {
             if (e.KeyCode == Keys.Escape)
             {
-                WindowState = FormWindowState.Minimized;
+                e.SuppressKeyPress = true;
+                Hide();
+                notifyIcon1.Visible = true;
             }
         }
     }
