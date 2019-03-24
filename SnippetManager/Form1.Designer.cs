@@ -42,6 +42,7 @@
             // 
             this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listBox1.DisplayMember = "keyword";
+            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.listBox1.ForeColor = System.Drawing.SystemColors.Info;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
@@ -49,6 +50,8 @@
             this.listBox1.Size = new System.Drawing.Size(349, 537);
             this.listBox1.TabIndex = 0;
             this.listBox1.ValueMember = "snippet";
+            this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // buttonAdd

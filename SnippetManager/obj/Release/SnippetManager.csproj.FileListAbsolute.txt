@@ -34,3 +34,5 @@ E:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.exe
 E:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.pdb
 E:\Git\SnippetManager\SnippetManager\bin\Release\SnippetManager.pdb
 E:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.csprojAssemblyReference.cache
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.csprojAssemblyReference.cache
+C:\Git\SnippetManager\SnippetManager\obj\Release\SnippetManager.Info.resources

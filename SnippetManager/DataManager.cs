@@ -60,6 +60,11 @@ namespace SnippetManager
             get; set;
         }
 
+        public float size
+        {
+            get; set;
+        }
+
         public DataManager()
         {
             loadData();
@@ -89,7 +94,9 @@ namespace SnippetManager
                     keyWord = "Space";
                     modifier = 2;
                     saveData();
+                    size = 22;
                     color = System.Drawing.Color.FromArgb(255, 255, 128, 0);
+                    saveData();
                 }
                 else
                 {
@@ -100,6 +107,7 @@ namespace SnippetManager
                     modifier = item.modifier;
                     keyWord = item.keyWord;
                     color = item.color;
+                    size = item.size;
                 }
             }
         }
@@ -113,6 +121,7 @@ namespace SnippetManager
             public int modifier;
             public Boolean theme;
             public String keyWord;
+            public float size;
         }
 
         public void saveData()
@@ -129,6 +138,7 @@ namespace SnippetManager
             item.modifier = modifier;
             item.theme = theme;
             item.color = color;
+            item.size = size;
             String json = JsonConvert.SerializeObject(item);
             File.WriteAllText(homePath + "/.snippets", json);
         }
@@ -144,6 +154,11 @@ namespace SnippetManager
             }
             snippets.Add(snippet);
             return true;
+        }
+
+        public object clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

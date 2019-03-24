@@ -21,7 +21,17 @@ namespace SnippetManager
             tableLayoutPanel1.Controls.Add(label1, 1, 1);
             tableLayoutPanel1.Controls.Add(textBox1, 2, 1);
             tableLayoutPanel1.Controls.Add(listBox1, 2, 2);
-            if(!data.theme)
+            label1.Font = new Font(label1.Font.FontFamily, data.size);
+            int height = (int)Math.Ceiling(data.size * 1.3);
+            listBox1.ItemHeight = height;
+            listBox1.Height = height * 6;
+            listBox1.Width = height * 8;
+            textBox1.Width = height * 8;
+            textBox1.Height = height;
+            listBox1.Font = new Font(listBox1.Font.FontFamily, data.size);
+            textBox1.Font = new Font(textBox1.Font.FontFamily, data.size);
+
+            if (!data.theme)
             {
                 label1.ForeColor = Color.Black;
                 listBox1.ForeColor = Color.Black;
