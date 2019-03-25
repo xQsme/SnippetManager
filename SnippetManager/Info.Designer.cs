@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info));
             this.labelKey = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.labelCount = new System.Windows.Forms.Label();
@@ -73,6 +74,7 @@
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.labelKey);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Info";
             this.Text = "Info";
