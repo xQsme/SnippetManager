@@ -58,5 +58,15 @@ namespace SnippetManager
                 Close();
             }
         }
+
+        private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 9)
+            {
+                e.Handled = true;
+                richTextBox1.SelectionLength = 0;
+                richTextBox1.SelectedText = "    ";
+            }
+        }
     }
 }

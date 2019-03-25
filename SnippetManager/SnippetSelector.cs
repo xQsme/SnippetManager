@@ -21,15 +21,18 @@ namespace SnippetManager
             tableLayoutPanel1.Controls.Add(label1, 1, 1);
             tableLayoutPanel1.Controls.Add(textBox1, 2, 1);
             tableLayoutPanel1.Controls.Add(listBox1, 2, 2);
-            label1.Font = new Font(label1.Font.FontFamily, data.size);
-            int height = (int)Math.Ceiling(data.size * 1.3);
+            label1.Font = data.font;
+            label1.ForeColor = data.fontColor;
+            int height = (int)Math.Ceiling(data.font.Size * 1.3);
             listBox1.ItemHeight = height;
             listBox1.Height = height * 6;
             listBox1.Width = height * 8;
             textBox1.Width = height * 8;
             textBox1.Height = height;
-            listBox1.Font = new Font(listBox1.Font.FontFamily, data.size);
-            textBox1.Font = new Font(textBox1.Font.FontFamily, data.size);
+            listBox1.Font = data.font;
+            textBox1.Font = data.font;
+            listBox1.ForeColor = data.fontColor;
+            textBox1.ForeColor = data.fontColor;
 
             if (!data.theme)
             {
@@ -113,8 +116,7 @@ namespace SnippetManager
             // Draw the background of the ListBox control for each item.
             e.DrawBackground();
             // Draw the current item text
-           Brush toApply = data.theme ? Brushes.White : Brushes.Black;
-            e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, toApply, e.Bounds, StringFormat.GenericDefault);
+            e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, new SolidBrush(data.fontColor), e.Bounds, StringFormat.GenericDefault);
             // If the ListBox has focus, draw a focus rectangle around the selected item.
             e.DrawFocusRectangle();
         }

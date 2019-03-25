@@ -19,4 +19,4 @@ Currently Windows exclusive (C#), might try to make it cross platform soon.
 * Light and dark theme support
 * Runs in background with tray icon
 * Running on startup
-* Font Size and Highlight color selection
+* Font and highlight color selection

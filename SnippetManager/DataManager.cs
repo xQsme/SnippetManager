@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SnippetManager
 {
@@ -30,7 +28,7 @@ namespace SnippetManager
             get; set;
         }
 
-        public System.Drawing.Color color
+        public Color color
         {
             get; set;
         }
@@ -60,7 +58,12 @@ namespace SnippetManager
             get; set;
         }
 
-        public float size
+        public Font font
+        {
+            get; set;
+        }
+
+        public Color fontColor
         {
             get; set;
         }
@@ -94,8 +97,9 @@ namespace SnippetManager
                     keyWord = "Space";
                     modifier = 2;
                     saveData();
-                    size = 22;
-                    color = System.Drawing.Color.FromArgb(255, 255, 128, 0);
+                    font = new Font("Microsoft Sans Serif", 22, FontStyle.Regular);
+                    fontColor = Color.FromArgb(255, 255, 255, 255);
+                    color = Color.FromArgb(255, 255, 128, 0);
                     saveData();
                 }
                 else
@@ -107,7 +111,8 @@ namespace SnippetManager
                     modifier = item.modifier;
                     keyWord = item.keyWord;
                     color = item.color;
-                    size = item.size;
+                    font = item.font;
+                    fontColor = item.fontColor;
                 }
             }
         }
@@ -116,12 +121,13 @@ namespace SnippetManager
         {
             public List<Snippet> snippets;
             public Boolean startup;
-            public System.Drawing.Color color;
+            public Color color;
             public int key;
             public int modifier;
             public Boolean theme;
             public String keyWord;
-            public float size;
+            public Font font;
+            public Color fontColor;
         }
 
         public void saveData()
@@ -138,7 +144,8 @@ namespace SnippetManager
             item.modifier = modifier;
             item.theme = theme;
             item.color = color;
-            item.size = size;
+            item.font = font;
+            item.fontColor = fontColor;
             String json = JsonConvert.SerializeObject(item);
             File.WriteAllText(homePath + "/.snippets", json);
         }

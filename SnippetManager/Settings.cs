@@ -43,7 +43,9 @@ namespace SnippetManager
             checkStartup.Checked = data.startup;
             checkTheme.Checked = data.theme;
             textBox1.Text = data.keyWord;
-            textBox3.Text = data.size.ToString();
+            label3.Text = data.font.Name + " " + data.font.Size;
+            label3.Font = data.font;
+            label3.ForeColor = data.fontColor;
             int index = 0;
             if (data.modifier == 1)
             {
@@ -65,7 +67,7 @@ namespace SnippetManager
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text == "" || textBox3.Text == "")
+            if(textBox1.Text == "")
             {
                 MessageBox.Show("Must fill every field!", "Error");
             }
@@ -77,7 +79,8 @@ namespace SnippetManager
                 data.modifier = newData.modifier;
                 data.theme = newData.theme;
                 data.color = newData.color;
-                data.size = newData.size;
+                data.font = newData.font;
+                data.fontColor = newData.fontColor;
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -227,9 +230,22 @@ namespace SnippetManager
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            newData.size = float.Parse(textBox3.Text);
+            FontDialog fontDialog = new FontDialog();
+            fontDialog.ShowColor = true;
+
+            fontDialog.Font = data.font;
+            fontDialog.Color = data.fontColor;
+
+            if (fontDialog.ShowDialog() != DialogResult.Cancel)
+            {
+                label3.Text = fontDialog.Font.Name + " " + fontDialog.Font.Size;
+                label3.Font = fontDialog.Font;
+                label3.ForeColor = fontDialog.Color;
+                newData.font = fontDialog.Font;
+                newData.fontColor = fontDialog.Color;
+            }
         }
     }
 }
