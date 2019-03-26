@@ -35,6 +35,8 @@ namespace SnippetManager
                 comboBox1.ForeColor = default(Color);
                 button1.BackColor = default(Color);
                 button1.ForeColor = default(Color);
+                button2.BackColor = default(Color);
+                button2.ForeColor = default(Color);
                 label1.BackColor = default(Color);
                 label1.ForeColor = default(Color);
                 BackColor = default(Color);
@@ -115,6 +117,8 @@ namespace SnippetManager
                 comboBox1.ForeColor = Color.White;
                 button1.BackColor = Color.FromArgb(64, 64, 64);
                 button1.ForeColor = Color.White;
+                button2.BackColor = Color.FromArgb(64, 64, 64);
+                button2.ForeColor = Color.White;
                 label1.BackColor = SystemColors.WindowFrame;
                 label1.ForeColor = Color.White;
                 BackColor = SystemColors.WindowFrame;
@@ -135,6 +139,8 @@ namespace SnippetManager
                 comboBox1.ForeColor = default(Color);
                 button1.BackColor = default(Color);
                 button1.ForeColor = default(Color);
+                button2.BackColor = default(Color);
+                button2.ForeColor = default(Color);
                 label1.BackColor = default(Color);
                 label1.ForeColor = default(Color);
                 BackColor = default(Color);
