@@ -33,13 +33,6 @@ namespace SnippetManager
             textBox1.Font = data.font;
             listBox1.ForeColor = data.fontColor;
             textBox1.ForeColor = data.fontColor;
-
-            if (!data.theme)
-            {
-                label1.ForeColor = Color.Black;
-                listBox1.ForeColor = Color.Black;
-                textBox1.ForeColor = Color.Black;
-            }
             this.data = data;
             this.data.snippets.Sort((x, y) => y.count - x.count);
             currentData = new List<Snippet>(this.data.snippets).Take(6).ToList();
