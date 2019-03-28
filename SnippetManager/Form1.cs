@@ -21,6 +21,7 @@ namespace SnippetManager
         public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
         const int MYACTION_HOTKEY_ID = 1;
         DataManager data;
+        bool AuthorizeCheck { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -35,8 +36,8 @@ namespace SnippetManager
                 buttonDelete.ForeColor = default(Color);
                 buttonSettings.BackColor = default(Color);
                 buttonSettings.ForeColor = default(Color);
-                listBox1.BackColor = default(Color);
-                listBox1.ForeColor = default(Color);
+                checkedListBox1.BackColor = default(Color);
+                checkedListBox1.ForeColor = default(Color);
                 BackColor = default(Color);
             }
             updateList();
@@ -47,9 +48,9 @@ namespace SnippetManager
             notifyIcon1.ContextMenu = menu;
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void checkedListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int index = listBox1.IndexFromPoint(e.Location);
+            int index = checkedListBox1.IndexFromPoint(e.Location);
             if (index != ListBox.NoMatches)
             {
                 Info info = new Info(data.snippets[index], data.theme);
@@ -70,9 +71,9 @@ namespace SnippetManager
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex >= 0 && data.snippets.Count > 0)
+            if (checkedListBox1.SelectedIndex >= 0 && data.snippets.Count > 0)
             {
-                Edit edit = new Edit(data.snippets[listBox1.SelectedIndex], data.theme);
+                Edit edit = new Edit(data.snippets[checkedListBox1.SelectedIndex], data.theme);
                 var result = edit.ShowDialog();
                 if (result == DialogResult.OK)
                 {
@@ -84,9 +85,9 @@ namespace SnippetManager
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if(listBox1.SelectedIndex >= 0 && data.snippets.Count > 0)
+            if(checkedListBox1.SelectedIndex >= 0 && data.snippets.Count > 0)
             {
-                data.snippets.Remove(data.snippets[listBox1.SelectedIndex]);
+                data.snippets.Remove(data.snippets[checkedListBox1.SelectedIndex]);
                 data.saveData();
                 updateList();
             }
@@ -94,8 +95,21 @@ namespace SnippetManager
 
         private void updateList()
         {
-            listBox1.DataSource = null;
-            listBox1.DataSource = data.snippets;
+            checkedListBox1.DataSource = null;
+            checkedListBox1.DataSource = data.snippets;
+            AuthorizeCheck = true;
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                if (data.snippets[i].check)
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Checked);
+                }
+                else
+                {
+                    checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+                }
+            }
+            AuthorizeCheck = false;
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
@@ -116,8 +130,8 @@ namespace SnippetManager
                     buttonDelete.ForeColor = Color.White;
                     buttonSettings.BackColor = Color.FromArgb(64, 64, 64);
                     buttonSettings.ForeColor = Color.White;
-                    listBox1.BackColor = Color.FromArgb(64, 64, 64);
-                    listBox1.ForeColor = Color.White;
+                    checkedListBox1.BackColor = Color.FromArgb(64, 64, 64);
+                    checkedListBox1.ForeColor = Color.White;
                     BackColor = SystemColors.WindowFrame;
                 }
                 else
@@ -130,8 +144,8 @@ namespace SnippetManager
                     buttonDelete.ForeColor = default(Color);
                     buttonSettings.BackColor = default(Color);
                     buttonSettings.ForeColor = default(Color);
-                    listBox1.BackColor = default(Color);
-                    listBox1.ForeColor = default(Color);
+                    checkedListBox1.BackColor = default(Color);
+                    checkedListBox1.ForeColor = default(Color);
                     BackColor = default(Color);
                 }
                 RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
@@ -202,7 +216,7 @@ namespace SnippetManager
             }
         }
 
-        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
+        private void checkedListBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
             //if the item state is selected them change the back color 
@@ -219,17 +233,47 @@ namespace SnippetManager
             e.DrawBackground();
             // Draw the current item text
             Brush toApply = data.theme ? Brushes.White : Brushes.Black;
-            e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, toApply, e.Bounds, StringFormat.GenericDefault);
+            e.Graphics.DrawString(checkedListBox1.Items[e.Index].ToString(), e.Font, toApply, e.Bounds, StringFormat.GenericDefault);
             // If the ListBox has focus, draw a focus rectangle around the selected item.
             e.DrawFocusRectangle();
         }
 
-        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        private void checkedListBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && listBox1.SelectedIndex >= 0)
+            if (e.KeyCode == Keys.Enter && checkedListBox1.SelectedIndex >= 0)
             {
-                Info info = new Info(data.snippets[listBox1.SelectedIndex], data.theme);
+                Info info = new Info(data.snippets[checkedListBox1.SelectedIndex], data.theme);
                 info.Show();
+            }
+        }
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (!AuthorizeCheck)
+            {
+                e.NewValue = e.CurrentValue;
+            }
+
+        }
+
+        private void checkedListBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Point loc = this.checkedListBox1.PointToClient(Cursor.Position);
+            for (int i = 0; i < this.checkedListBox1.Items.Count; i++)
+            {
+                Rectangle rec = this.checkedListBox1.GetItemRectangle(i);
+                rec.Width = 16; //checkbox itself has a default width of about 16 pixels
+
+                if (rec.Contains(loc))
+                {
+                    AuthorizeCheck = true;
+                    bool newValue = !checkedListBox1.GetItemChecked(i);
+                    checkedListBox1.SetItemChecked(i, newValue);//check 
+                    AuthorizeCheck = false;
+                    data.snippets[i].check = newValue;
+                    data.saveData();
+                return;
+                }
             }
         }
     }

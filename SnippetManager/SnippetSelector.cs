@@ -14,6 +14,7 @@ namespace SnippetManager
     {
         DataManager data;
         public string ReturnValue { get; set; }
+        List<Snippet> checkedData;
         List<Snippet> currentData;
         public SnippetSelector(DataManager data)
         {
@@ -41,8 +42,9 @@ namespace SnippetManager
                 textBox1.ForeColor = Color.Black;
             }
             this.data = data;
-            this.data.snippets.Sort((x, y) => y.count - x.count);
-            currentData = new List<Snippet>(this.data.snippets).Take(6).ToList();
+            data.snippets.Sort((x, y) => y.count - x.count);
+            checkedData = data.snippets.Where(x => x.check == true).ToList();
+            currentData = new List<Snippet>(checkedData).Take(6).ToList();
             listBox1.DataSource = currentData;
             textBox1.Focus();
         }
@@ -57,7 +59,7 @@ namespace SnippetManager
                     toRemove.Add(s);
                 }
             }
-            currentData = new List<Snippet>(this.data.snippets);
+            currentData = new List<Snippet>(checkedData);
             foreach (Snippet s in toRemove)
             {
                 currentData.Remove(s);
@@ -79,7 +81,7 @@ namespace SnippetManager
                 if (listBox1.SelectedIndex >= 0 && currentData.Count > 0)
                 {
                     ReturnValue = currentData[listBox1.SelectedIndex].snippet;
-                    currentData[listBox1.SelectedIndex].count++;
+                    currentData[listBox1.SelectedIndex].increment();
                     DialogResult = DialogResult.OK;
                 }
                 Close();

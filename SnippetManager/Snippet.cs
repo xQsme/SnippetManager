@@ -9,6 +9,10 @@ namespace SnippetManager
 
     public class Snippet
     {
+        public bool check
+        {
+            get; set;
+        }
         public string keyword
         {
             get; set;
@@ -26,6 +30,7 @@ namespace SnippetManager
             this.keyword = keyword;
             this.snippet = snippet;
             count = 0;
+            check = true;
         }
         public void increment()
         {
