@@ -20,3 +20,4 @@ Currently Windows exclusive (C#), might try to make it cross platform soon.
 * Runs in background with tray icon
 * Running on startup
 * Font and highlight color selection
+* Activate/Deactivate snippets
