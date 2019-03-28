@@ -43,9 +43,15 @@ namespace SnippetManager
             updateList();
             RegisterHotKey(Handle, MYACTION_HOTKEY_ID, data.modifier, data.key);
             ContextMenu menu = new ContextMenu();
-            menu.MenuItems.Add("Open", (s, e) => WindowState = FormWindowState.Normal);
+            menu.MenuItems.Add("Open", (s, e) => restore());
             menu.MenuItems.Add("Exit", (s, e) => Application.Exit());
             notifyIcon1.ContextMenu = menu;
+        }
+
+        private void restore()
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
         }
 
         private void checkedListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -170,14 +176,16 @@ namespace SnippetManager
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
+            if(e.Button == MouseButtons.Left)
+            {
+                restore();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             notifyIcon1.Visible = true;
-            this.Hide();
+            Hide();
         }
 
         protected override void WndProc(ref Message m)
@@ -265,10 +273,10 @@ namespace SnippetManager
 
         private void checkedListBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            Point loc = this.checkedListBox1.PointToClient(Cursor.Position);
-            for (int i = 0; i < this.checkedListBox1.Items.Count; i++)
+            Point loc = checkedListBox1.PointToClient(Cursor.Position);
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
-                Rectangle rec = this.checkedListBox1.GetItemRectangle(i);
+                Rectangle rec = checkedListBox1.GetItemRectangle(i);
                 rec.Width = 16; //checkbox itself has a default width of about 16 pixels
 
                 if (rec.Contains(loc))
