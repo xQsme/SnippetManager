@@ -50,12 +50,19 @@ namespace SnippetManager
 
         private void checkedListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            Point loc = checkedListBox1.PointToClient(Cursor.Position);
             int index = checkedListBox1.IndexFromPoint(e.Location);
-            if (index != ListBox.NoMatches)
-            {
-                Info info = new Info(data.snippets[index], data.theme);
-                info.Show();
+            Rectangle rec = checkedListBox1.GetItemRectangle(index);
+            rec.Width = 16; //checkbox itself has a default width of about 16 pixels
+            if (!rec.Contains(loc))
+            {  
+                if (index != ListBox.NoMatches)
+                {
+                    Info info = new Info(data.snippets[index], data.theme);
+                    info.Show();
+                }
             }
+
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
