@@ -19,9 +19,6 @@ namespace SnippetManager
         public SnippetSelector(DataManager data)
         {
             InitializeComponent();
-            tableLayoutPanel1.Controls.Add(label1, 1, 1);
-            tableLayoutPanel1.Controls.Add(textBox1, 2, 1);
-            tableLayoutPanel1.Controls.Add(listBox1, 2, 2);
             label1.Font = data.font;
             label1.ForeColor = data.fontColor;
             int height = (int)Math.Ceiling(data.font.Size * 1.3);

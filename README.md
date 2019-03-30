@@ -21,3 +21,4 @@ Currently Windows exclusive (C#), might try to make it cross platform soon.
 * Running on startup
 * Font and highlight color selection
 * Activate/Deactivate snippets
+* Responsive Layouts
