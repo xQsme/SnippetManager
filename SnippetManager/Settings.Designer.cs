@@ -41,12 +41,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkStartup = new System.Windows.Forms.CheckBox();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkStartup = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -72,7 +72,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(3, 85);
+            this.label1.Location = new System.Drawing.Point(3, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 13);
             this.label1.TabIndex = 3;
@@ -94,7 +94,7 @@
             this.checkTheme.AutoSize = true;
             this.checkTheme.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.checkTheme.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkTheme.Location = new System.Drawing.Point(3, 28);
+            this.checkTheme.Location = new System.Drawing.Point(3, 26);
             this.checkTheme.Name = "checkTheme";
             this.checkTheme.Size = new System.Drawing.Size(85, 17);
             this.checkTheme.TabIndex = 5;
@@ -121,7 +121,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(67, 0);
+            this.label2.Location = new System.Drawing.Point(67, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 13);
             this.label2.TabIndex = 7;
@@ -143,7 +144,8 @@
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(138, 3);
+            this.textBox2.Location = new System.Drawing.Point(138, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(20, 20);
             this.textBox2.TabIndex = 9;
@@ -152,7 +154,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(3, 143);
+            this.button2.Location = new System.Drawing.Point(3, 132);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 12;
@@ -164,7 +166,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(3, 175);
+            this.label3.Location = new System.Drawing.Point(3, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 13;
@@ -185,31 +187,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 361);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
-            // checkStartup
-            // 
-            this.checkStartup.AutoSize = true;
-            this.checkStartup.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.checkStartup.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkStartup.Location = new System.Drawing.Point(3, 3);
-            this.checkStartup.Name = "checkStartup";
-            this.checkStartup.Size = new System.Drawing.Size(98, 17);
-            this.checkStartup.TabIndex = 0;
-            this.checkStartup.Text = "Run on Startup";
-            this.checkStartup.UseVisualStyleBackColor = false;
-            this.checkStartup.CheckedChanged += new System.EventHandler(this.checkStartup_CheckedChanged);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonSave.Location = new System.Drawing.Point(3, 3);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 1;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -225,15 +202,28 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(378, 320);
             this.tableLayoutPanel2.TabIndex = 3;
+            // 
+            // checkStartup
+            // 
+            this.checkStartup.AutoSize = true;
+            this.checkStartup.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.checkStartup.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkStartup.Location = new System.Drawing.Point(3, 3);
+            this.checkStartup.Name = "checkStartup";
+            this.checkStartup.Size = new System.Drawing.Size(98, 17);
+            this.checkStartup.TabIndex = 0;
+            this.checkStartup.Text = "Run on Startup";
+            this.checkStartup.UseVisualStyleBackColor = false;
+            this.checkStartup.CheckedChanged += new System.EventHandler(this.checkStartup_CheckedChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -243,7 +233,7 @@
             this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.textBox2, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 53);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 49);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -260,7 +250,7 @@
             this.tableLayoutPanel4.Controls.Add(this.textBox1, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 108);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 97);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -281,6 +271,18 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(378, 29);
             this.tableLayoutPanel5.TabIndex = 4;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonSave.Location = new System.Drawing.Point(3, 3);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 1;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // Settings
             // 

@@ -52,10 +52,10 @@
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 23);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 21);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(378, 320);
+            this.richTextBox1.Size = new System.Drawing.Size(378, 324);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
@@ -63,7 +63,7 @@
             // 
             this.labelCount.AutoSize = true;
             this.labelCount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelCount.Location = new System.Drawing.Point(3, 346);
+            this.labelCount.Location = new System.Drawing.Point(3, 348);
             this.labelCount.Name = "labelCount";
             this.labelCount.Size = new System.Drawing.Size(69, 13);
             this.labelCount.TabIndex = 2;
@@ -80,9 +80,9 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 361);
             this.tableLayoutPanel1.TabIndex = 3;
             // 

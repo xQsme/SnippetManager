@@ -168,7 +168,7 @@ namespace SnippetManager
                 }
                 else
                 {
-                    rk.DeleteValue("SnippetManager", false);
+                    rk.DeleteValue("SnippetManager");
                 }
                 data.saveData();
             }
