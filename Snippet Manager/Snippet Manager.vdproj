@@ -40,12 +40,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DA660D3EA9E9085D5D7FA9BE1ADEF0AF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A68BC08F6E5E49ED86E602828079A071"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -53,6 +47,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_44E04506AB117F0811F1AA728FD55E6A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DA660D3EA9E9085D5D7FA9BE1ADEF0AF"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -73,6 +73,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -89,6 +97,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -257,7 +281,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Snippet Manager"
         "ProductCode" = "8:{8AC36CE4-080C-44F0-B997-4FE6A9BEC01F}"
-        "PackageCode" = "8:{315A6A54-DC2E-4572-992B-FB7CFD3D0254}"
+        "PackageCode" = "8:{E312B30E-0840-4BAE-96DE-E0FDC8845074}"
         "UpgradeCode" = "8:{FA9D2A91-C800-4B51-9DC1-AB46FF158CA2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -387,6 +411,20 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_A68BC08F6E5E49ED86E602828079A071"
             "Folder" = "8:_E70D62E67884461C874BF534704A7EC9"
+            "WorkingFolder" = "8:_06B7D45A982A45F7861ADE9D9199FD10"
+            "Icon" = "8:_F72F6DE51CA14629B9A908B97A1B56D6"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3A564EBFC2CB46E790AB235C0744D0FC"
+            {
+            "Name" = "8:Snippet Manager"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_A68BC08F6E5E49ED86E602828079A071"
+            "Folder" = "8:_AA726A9EE165462D81E9FE09808388B2"
             "WorkingFolder" = "8:_06B7D45A982A45F7861ADE9D9199FD10"
             "Icon" = "8:_F72F6DE51CA14629B9A908B97A1B56D6"
             "Feature" = "8:"
