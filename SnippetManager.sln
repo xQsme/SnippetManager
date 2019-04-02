@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnippetManager", "SnippetManager\SnippetManager.csproj", "{1536F34C-095D-4E35-85B6-E60DA849E0D2}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Snippet Manager", "Snippet Manager\Snippet Manager.vdproj", "{D0A9EE1D-8CB0-4B6C-B73A-16FA4740F9A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{1536F34C-095D-4E35-85B6-E60DA849E0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1536F34C-095D-4E35-85B6-E60DA849E0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1536F34C-095D-4E35-85B6-E60DA849E0D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A9EE1D-8CB0-4B6C-B73A-16FA4740F9A2}.Debug|Any CPU.ActiveCfg = Debug
+		{D0A9EE1D-8CB0-4B6C-B73A-16FA4740F9A2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
