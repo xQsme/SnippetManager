@@ -1,5 +1,36 @@
-﻿namespace SnippetManager
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace SnippetManager
 {
+    class ColoredCheckedListBox : CheckedListBox
+    {
+        public Color color
+        {
+            get; set;
+        }
+        public ColoredCheckedListBox()
+        {
+            color = Color.Blue;
+        }
+        protected override void OnDrawItem(DrawItemEventArgs e)
+        {
+            DrawItemEventArgs e2 =
+            new DrawItemEventArgs
+            (
+                e.Graphics,
+                e.Font,
+                new Rectangle(e.Bounds.Location, e.Bounds.Size),
+                e.Index,
+                DrawItemState.None,
+                e.ForeColor,
+                (int)e.State % 2 == 1 ? color : BackColor
+            );
+
+            base.OnDrawItem(e2);
+        }
+    }
+
     partial class Form1
     {
         /// <summary>
@@ -35,7 +66,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox1 = new SnippetManager.ColoredCheckedListBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
@@ -104,6 +135,7 @@
             // checkedListBox1
             // 
             this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.checkedListBox1.color = System.Drawing.Color.Blue;
             this.checkedListBox1.DisplayMember = "keyword";
             this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBox1.ForeColor = System.Drawing.Color.Ivory;
@@ -181,7 +213,7 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private ColoredCheckedListBox checkedListBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }

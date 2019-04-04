@@ -26,6 +26,7 @@ namespace SnippetManager
         {
             InitializeComponent();
             data = new DataManager();
+            checkedListBox1.color = data.color;
             if(!data.theme)
             {
                 buttonAdd.BackColor = default(Color);
@@ -58,17 +59,19 @@ namespace SnippetManager
         {
             Point loc = checkedListBox1.PointToClient(Cursor.Position);
             int index = checkedListBox1.IndexFromPoint(e.Location);
-            Rectangle rec = checkedListBox1.GetItemRectangle(index);
-            rec.Width = 16; //checkbox itself has a default width of about 16 pixels
-            if (!rec.Contains(loc))
-            {  
-                if (index != ListBox.NoMatches)
+            if(index != -1)
+            {
+                Rectangle rec = checkedListBox1.GetItemRectangle(index);
+                rec.Width = 16; //checkbox itself has a default width of about 16 pixels
+                if (!rec.Contains(loc))
                 {
-                    Info info = new Info(data.snippets[index], data.theme);
-                    info.Show();
+                    if (index != ListBox.NoMatches)
+                    {
+                        Info info = new Info(data.snippets[index], data.theme);
+                        info.Show();
+                    }
                 }
             }
-
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -161,6 +164,8 @@ namespace SnippetManager
                     checkedListBox1.ForeColor = default(Color);
                     BackColor = default(Color);
                 }
+                checkedListBox1.color = data.color;
+                checkedListBox1.Refresh();
                 RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
                 if (data.startup)
                 {
